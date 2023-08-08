@@ -1,6 +1,19 @@
 /**
  * Project 5 - Refactored Javascript for access of visitor form
  */
+// Visitor Form
+document.addEventListener("DOMContentLoaded", function(event) {
+  const logVisitLink = document.getElementById("log-visit");
+  const formContainer = document.getElementById("visitor-form-container");
+
+  logVisitLink.addEventListener("click", function() {
+      formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
+  });
+});
+
+
+
+// click action for About Me Section
 
 var tablinks = document.getElementsByClassName("tab-links");
 var tabcontents = document.getElementsByClassName("tab-contents");

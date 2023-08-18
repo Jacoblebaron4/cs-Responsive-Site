@@ -1,17 +1,6 @@
 /**
  * Project 5 - Refactored Javascript for access of visitor form
  */
-// Visitor Form
-document.addEventListener("DOMContentLoaded", function(event) {
-  const logVisitLink = document.getElementById("log-visit");
-  const formContainer = document.getElementById("visitor-form-container");
-
-  logVisitLink.addEventListener("click", function() {
-      formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
-  });
-});
-
-
 
 // click action for About Me Section
 
@@ -27,3 +16,35 @@ function opentab(tabname) {
   event.currentTarget.classList.add("active-link");
   document.getElementById(tabname).classList.add("active-tab");
 }
+
+// visitor form
+
+document.addEventListener('DOMContentLoaded', function () {
+  const logVisitButton = document.getElementById('logVisitButton');
+  const logVisitForm = document.getElementById('logVisitForm');
+  const sendButton = document.getElementById('submitBtn');
+  const visitForm = document.getElementById('visitForm'); // Added ID for form tag
+
+  logVisitButton.addEventListener('click', function () {
+    logVisitForm.style.display = 'flex';
+  });
+
+  sendButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    // Validate the form before submission
+    if (validateForm('#visitForm')) {
+      logVisitForm.style.display = 'none';
+      alert('Thank you for the submission!');
+    }
+  });
+
+  // Add onBlur event listeners for input validation
+  const inputs = visitForm.querySelectorAll('input');
+  inputs.forEach(input => {
+    input.addEventListener('blur', function () {
+      validateField(input);
+    });
+  });
+});

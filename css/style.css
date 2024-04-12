@@ -328,7 +328,7 @@ footer {
   width: fit-content;
   border: 1px solid var(--bg-color);
   padding: 14px 50px;
-  border-radius: 6px;
+  border-radius: 20px;
   text-decoration: none;
   color: var(--font-color);
   transition: background .05s;
